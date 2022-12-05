@@ -1,5 +1,5 @@
 import  {Router} from 'express';
-import { allLog, byIDLog, createLog, updateLog, deleteLog } from '../controller/product/logProductController.js';
+import { allLog, byIDLog, createLog, updateLog, deleteLog, getAllProductLogByProduct } from '../controller/product/logProductController.js';
 const logRouter = Router();
 
 logRouter.get('/', (req, res)=>{
@@ -12,6 +12,7 @@ logRouter.get('/', (req, res)=>{
 
 logRouter.get('/log', allLog);
 logRouter.get('/log/:id', byIDLog);
+logRouter.get('/log/log/:id', getAllProductLogByProduct);
 logRouter.post('/log/create', createLog);
 logRouter.put('/log/:id',updateLog);
 logRouter.delete('/log/:id',deleteLog);

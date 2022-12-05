@@ -56,3 +56,14 @@ export const deleteLog = async (req, res)=>{
     return res.status(500).json({message: 'No se puedo eliminar'});
   }
 };
+
+//by product log
+export const getAllProductLogByProduct = async (req,res)=>{
+  const { id } = req.params;
+  const responseProductLog = await Products_Log.find({product: id});
+  try {
+    return res.status(200).json(responseProductLog);
+  } catch (err) {
+      return res.status(500).json({message: 'Producto no encontrado'});
+  }
+}

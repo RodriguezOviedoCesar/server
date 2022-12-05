@@ -60,7 +60,7 @@ export const deleteOrderList = async (req, res) => {
 //get Order List By Order
 export const getOrderListByOder = async (req, res)=>{
   const {id} = req.params;
-  const response  = await List_Order.find({sale:id});
+  const response  = await List_Order.find({sale:id}).populate('product',['name']).populate('sale',['codigo']);
   try {
     return res.status(200).json(response)
   } catch (err) {
